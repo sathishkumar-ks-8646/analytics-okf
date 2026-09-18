@@ -4547,7 +4547,7 @@
       },
       "Error": {
         "type": "object",
-        "$ref": "https://raw.githubusercontent.com/sathish-dev-git/Temp/refs/heads/master/zoho-analytics-api-common.json#/components/schemas/Error"
+        "$ref": "https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-api-docs/refs/heads/main/zoho-analytics-api-common.json#/components/schemas/Error"
       },
       "GetOrgAdminsResponse": {
         "type": "object",

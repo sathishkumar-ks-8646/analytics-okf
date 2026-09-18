@@ -14,15 +14,15 @@ This is documentation, not a client library. For the SDKs themselves see the
 
 ## Quick start
 
-**For an AI assistant or agent.** Point it at [`llms.txt`](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/llms.txt) and let it follow the links.
+**For an AI assistant or agent.** Point it at [`llms.txt`](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt) and let it follow the links.
 Inside the bundle, links between documents are relative to the linking document, so they resolve both on GitHub and in a local clone.
 
 ```
-https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/llms.txt                                  curated entry point
-https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/manifest.json                         version, counts, entry points
-https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/overview.md                           what the API is, five shared conventions
-https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/how-to-use-this-bundle.md             frontmatter contract and navigation rules
-https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/references/endpoint-catalog.json      every endpoint, machine-readable
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt                                  curated entry point
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/okf/manifest.json                         version, counts, entry points
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/okf/overview.md                           what the API is, five shared conventions
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/okf/how-to-use-this-bundle.md             frontmatter contract and navigation rules
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/okf/references/endpoint-catalog.json      every endpoint, machine-readable
 ```
 
 **For a human.** Start at [`okf/overview.md`](okf/overview.md), then
@@ -33,7 +33,7 @@ https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/re
 [`okf/references/openapi/`](okf/references/openapi/) for request and response schemas.
 
 ```bash
-git clone https://github.com/zoho/zoho-analytics-okf.git
+git clone https://github.com/zoho/analytics-okf.git
 ```
 
 ## What is in the bundle
@@ -116,4 +116,4 @@ See [LICENSE.md](LICENSE.md).
 
 ---
 
-Canonical copies: [https://github.com/zoho/zoho-analytics-okf](https://github.com/zoho/zoho-analytics-okf) and [https://www.zoho.com/analytics/api/v2/okf](https://www.zoho.com/analytics/api/v2/okf).
+Canonical copies: [https://github.com/zoho/analytics-okf](https://github.com/zoho/analytics-okf) and [https://www.zoho.com/analytics/api/v2/okf](https://www.zoho.com/analytics/api/v2/okf).
