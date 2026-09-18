@@ -1,0 +1,58 @@
+# Zoho Analytics REST API v2
+
+> Open Knowledge Format (OKF v0.2) bundle for the Zoho Analytics REST API v2: 168 endpoints across 10 domains, with the conventions, OAuth scopes, roles, identifiers and 278 error codes they share. Base URL https://analyticsapi.zoho.com, path prefix /restapi/v2, OAuth 2.0 with the Zoho-oauthtoken scheme, structured input in a single JSON parameter named CONFIG.
+
+Read overview.md first, then how-to-use-this-bundle.md for the frontmatter contract and navigation rules. Links inside the bundle are relative to the document that contains them; resolve them against that document's URL under https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf. Paths beginning with a slash appear only in frontmatter (resource, sources, api.openapi.file) and are relative to the bundle root, which is https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf.
+
+## Start here
+
+- [Overview](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/overview.md): what the API is, the object model, and the five conventions every call shares.
+- [How to use this bundle](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/how-to-use-this-bundle.md): directory layout, the api frontmatter contract, navigation rules for agents and generators.
+- [Endpoint catalog](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/endpoint-catalog.md): all 168 endpoints with method, path, operation ID, group, scope and success status.
+- [Bundle index](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/index.md): the full table of contents.
+
+## Foundations (rules shared by every call)
+
+- [Authentication](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/authentication.md): OAuth 2.0 flow, Authorization header, token lifetime and refresh.
+- [OAuth scopes](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/oauth-scopes.md): all 31 scopes and the operations each one covers.
+- [Data centers](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/data-centers.md): API host and accounts host per region.
+- [Request conventions](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/request-conventions.md): URL structure, headers, and how to encode the CONFIG parameter per HTTP method.
+- [Response envelope](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/response-envelope.md): the success and failure JSON shapes, the 204 no-body pattern, file responses.
+- [Error code catalog](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/error-codes.md): 278 codes with meaning, HTTP status, resolution and the operations that raise them.
+- [Error codes quick reference](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/error-codes-quick-reference.md): one compact row per code.
+- [Roles and permissions](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/roles-and-permissions.md): organization roles, workspace roles, view-level share permissions.
+- [Permission matrix](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/permission-matrix.md): scope, organization header and required role for every endpoint.
+- [Identifiers](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/identifiers.md): every ID used in paths and headers, and the call that returns it.
+- [Filter criteria syntax](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/filter-criteria-syntax.md): the SQL-like row filter used by exports, row writes, shares and embeds.
+- [Asynchronous jobs](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/asynchronous-jobs.md): job codes, polling, callbacks, batch imports, retention.
+- [Rate limits and quotas](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/rate-limits-and-quotas.md): throttles, concurrency guards, plan quotas, API units.
+- [HTTP status codes](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/http-status-codes.md): which status each failure class returns.
+- [Glossary](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/glossary.md): every Zoho Analytics object and term.
+
+## API domains
+
+- [Organization Management](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/organization-management/overview.md): organizations, plan and resource usage, name to ID resolution.
+- [Users and Groups](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/users-and-groups/overview.md): organization users, workspace users, workspace groups.
+- [Workspace Management](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/workspace-management/overview.md): workspaces, folders, preferences, White Label domain access.
+- [Data Modeling and Schema](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/data-modeling-and-schema/overview.md): tables, columns, lookups, query tables, formulas, variables.
+- [Data Operations](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/data-operations/overview.md): import, export, row writes, datasource sync.
+- [Views Management](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/views-management/overview.md): view lifecycle, favourites, trash, auto analysis.
+- [Reports and Dashboards](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/reports-and-dashboards/overview.md): analysis views and dashboards.
+- [Share and Publish](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/share-and-publish/overview.md): sharing, public and private URLs, embed URLs, slideshows.
+- [Schedules and Alerts](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/schedules-and-alerts/overview.md): recurring email delivery of views.
+- [Data Science and Machine Learning](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/domains/dsml/overview.md): AutoML training, deployment and scoring.
+
+## Workflows
+
+- [Workflow playbooks](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/workflows/index.md): 8 step-by-step procedures spanning several endpoints, including bootstrapping identifiers, asynchronous export, large imports, sharing with row filters, multi-tenant embedding, email schedules, user provisioning and AutoML.
+
+## Machine-readable
+
+- [manifest.json](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/manifest.json): bundle version, OKF version, counts, entry points.
+- [endpoint-catalog.json](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/references/endpoint-catalog.json): every endpoint with method, path, scopes, permission, error codes and document paths.
+- [OpenAPI specifications](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/references/openapi/): OpenAPI 3 files, one per domain plus shared components.
+
+## Optional
+
+- [SDK examples](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/sdk-examples/index.md): per-endpoint code samples in cURL, C#, Go, Java, PHP, Python, Node.js, Ruby and Deluge.
+- [SDK clients](https://raw.githubusercontent.com/sathish-dev-git/zoho-analytics-okf/main/okf/foundations/sdk-clients.md): how each official client library is constructed.

@@ -1,0 +1,25 @@
+name: Validate OKF bundle
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate OKF conformance and links
+        run: python3 tools/validate.py okf
+      - name: Check machine-readable files parse
+        run: |
+          python3 -c "import json;json.load(open('okf/manifest.json'))"
+          python3 -c "import json;json.load(open('okf/references/endpoint-catalog.json'))"
+          for f in okf/references/openapi/*.json; do
+            python3 -c "import json,sys;json.load(open(sys.argv[1]))" "$f"
+          done
