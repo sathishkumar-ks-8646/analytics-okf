@@ -2,7 +2,7 @@
   "name": "zoho-analytics-rest-api-v2",
   "title": "Zoho Analytics REST API v2",
   "description": "Open Knowledge Format bundle covering every public Zoho Analytics REST API v2 endpoint, the conventions shared by all of them, and their error codes, scopes and permissions.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "okf_version": "0.2",
   "api": {
     "name": "Zoho Analytics REST API",

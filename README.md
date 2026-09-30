@@ -7,7 +7,7 @@ and permissions as an [Open Knowledge Format](https://github.com/GoogleCloudPlat
 bundle: a directory of markdown files with YAML frontmatter.
 
 Each API version is a self-contained bundle in its own top-level directory. **The current version is
-[v2](v2/index.md)**, bundle version 1.0.0 - 168 endpoints, 10 domains, 33 groups, 278 error codes,
+[v2](v2/index.md)**, bundle version 1.1.0 - 168 endpoints, 10 domains, 33 groups, 278 error codes,
 31 OAuth scopes, 8 workflow playbooks, 166 SDK example documents in 9 languages.
 
 This is documentation, not a client library. For the SDKs themselves see the
@@ -181,7 +181,7 @@ Bundle version bumps within a single API version:
 Pin a version by cloning a tag or downloading the release tarball. `main` always holds the newest bundle.
 
 Moving the bundle from `okf/` to `v2/` was a repository-layout change, not a bundle change: no
-document, link or frontmatter path was altered, so the v2 bundle version stays 1.0.0. Raw URLs
+document, link or frontmatter path was altered, so the v2 bundle version was unchanged by it. Raw URLs
 pinned to the old `okf/` path must be rewritten to `v2/`.
 
 ## Provenance and trust

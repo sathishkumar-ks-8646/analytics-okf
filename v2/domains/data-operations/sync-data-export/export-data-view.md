@@ -32,7 +32,7 @@ api:
     - text/html
     - image/png
     - image/jpeg
-  permission_required: ""
+  permission_required: "The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with Export permission on the view."
   error_codes:
     - 7104
     - 7301
@@ -121,7 +121,7 @@ Note: Export Data API is restricted for certain resources (given below). For the
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.data.read`](../../../foundations/oauth-scopes.md#zohoanalyticsdataread) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with Export permission on the view. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | JSON object sent as the URL-encoded `CONFIG` query parameter - optional |
 | Success response | HTTP 200 - `text/csv`, `application/json`, `application/xml`, `application/vnd.ms-excel`, `application/pdf`, `text/html`, `image/png`, `image/jpeg` |
 | Content-Type | Varies with `responseFormat` — see [Response Structure by Format](#response-structure-by-format) |

@@ -5,7 +5,30 @@ removed or renamed endpoint or a layout change, minor for additions, patch for c
 
 ## Unreleased
 
+### Added
+
+- **`v2/foundations/custom-roles.md`.** Organization-defined custom roles: the three access
+  permission levels, the full permission catalogue by category (Create, Data, Design, Interaction,
+  Share and Collaborate, Publish, Data Source), a mapping from those labels onto the permission
+  vocabulary the endpoint documents use, the comparison against the predefined roles, and the rules
+  for assigning a custom role through the workspace-user endpoints. It records that the REST API can
+  **assign** a custom role but cannot create, list, modify or delete one, and that role names cannot
+  be enumerated from the API. Derived from the Zoho Analytics help documentation rather than the API
+  reference; the document states this in its body and lists both help pages in `sources`.
+  Cross-linked from the bundle index, the foundations index, `v2/llms.txt`, the roles, permission
+  matrix, how-to-use, Workspace Users and user-management-workflow documents.
+
 ### Fixed
+
+- **Ten endpoints had an empty `api.permission_required`**, so their rows in
+  `v2/foundations/permission-matrix.md` rendered as `-` — which reads as "this call needs no
+  permission". Affected: Export Data from a View; the four asynchronous export operations; and all
+  five Data Sync & Connectivity operations. Each value was taken from its own group's
+  **Permission Model** table, which had the answer all along, and the placeholder
+  `| Permission required | See group overview |` row in each document body was filled in too.
+- `tools/validate.py` now rejects an `API Endpoint` with an empty `api.permission_required`, an
+  unresolved "See group overview" placeholder in a document body, and an empty permission cell in
+  the permission matrix, so the gap cannot reappear silently.
 
 - **`generated.by` is now present on every concept.** OKF v0.2 §5.2 marks `by` as required inside
   `generated`, and §5.3 derives the trust tier from the actor prefix, but the bundle emitted

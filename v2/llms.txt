@@ -15,6 +15,7 @@ Read overview.md first, then how-to-use-this-bundle.md for the frontmatter contr
 
 - [Authentication](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/authentication.md): OAuth 2.0 flow, Authorization header, token lifetime and refresh.
 - [OAuth scopes](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/oauth-scopes.md): all 31 scopes and the operations each one covers.
+- [Custom roles](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/custom-roles.md): organization-defined roles, the three access levels, the permission catalogue, and how a role name is used by the API.
 - [Data centers](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/data-centers.md): API host and accounts host per region.
 - [Request conventions](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/request-conventions.md): URL structure, headers, and how to encode the CONFIG parameter per HTTP method.
 - [Response envelope](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/foundations/response-envelope.md): the success and failure JSON shapes, the 204 no-body pattern, file responses.

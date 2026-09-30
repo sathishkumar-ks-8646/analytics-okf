@@ -25,7 +25,7 @@ api:
   success_status: 200
   response_content_types:
     - application/json
-  permission_required: ""
+  permission_required: "The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with View Datasource or an import permission on the view."
   error_codes:
     - 7104
     - 7301
@@ -77,7 +77,7 @@ Returns the details of the most recent load into the specified view, whatever pe
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.metadata.read`](../../../foundations/oauth-scopes.md#zohoanalyticsmetadataread) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with View Datasource or an import permission on the view. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | No CONFIG parameter |
 | Success response | HTTP 200 - `application/json` |
 | OpenAPI | [`data-operations-grouped-api.json`](../../../references/openapi/data-operations-grouped-api.json) - pointer `#/paths/~1restapi~1v2~1workspaces~1{workspace-id}~1views~1{view-id}~1importdetails/get`; response schema `GetLastImportDetailsResponse` |

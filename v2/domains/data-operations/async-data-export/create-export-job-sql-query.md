@@ -25,7 +25,7 @@ api:
   success_status: 200
   response_content_types:
     - application/json
-  permission_required: ""
+  permission_required: "The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or any user with Export permission on every table the SQL query references."
   error_codes:
     - 7301
     - 7401
@@ -127,7 +127,7 @@ Limitations:
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.data.read`](../../../foundations/oauth-scopes.md#zohoanalyticsdataread) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or any user with Export permission on every table the SQL query references. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | JSON object sent as the URL-encoded `CONFIG` query parameter - **mandatory** |
 | Success response | HTTP 200 - `application/json` |
 | OpenAPI | [`data-operations-grouped-api.json`](../../../references/openapi/data-operations-grouped-api.json) - pointer `#/paths/~1restapi~1v2~1bulk~1workspaces~1{workspace-id}~1data/get`; CONFIG schema `ExportJobConfigSQLQuery`; response schema `ExportJobCreationResponse` |

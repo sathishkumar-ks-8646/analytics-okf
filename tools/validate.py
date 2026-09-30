@@ -136,6 +136,15 @@ for dirpath, dirnames, filenames in os.walk(OUT):
             if not re.search(rf'(?m)^{key}: \S', fm):
                 warnings.append(f'{relp}: frontmatter missing {key}')
         if '{{' in fm: errors.append(f'{relp}: unexpanded template placeholder in frontmatter')
+        # An endpoint whose authorization requirement is blank is worse than one with no
+        # document: the permission matrix renders it as "-" and a reader concludes the call
+        # needs nothing. The group overview's Permission Model table is the source to fill it from.
+        if re.search(r'(?m)^type: API Endpoint\s*$', fm):
+            pr = re.search(r'(?m)^\s+permission_required:[ \t]*"?(.*?)"?[ \t]*$', fm)
+            if not pr or not pr.group(1).strip():
+                errors.append(f'{relp}: API Endpoint has empty api.permission_required')
+        if re.search(r'(?m)^\|\s*Permission required\s*\|\s*See group overview', body):
+            errors.append(f'{relp}: "Permission required" row is an unresolved placeholder')
         # OKF v0.2 SS5.2: `by` is REQUIRED inside `generated`, and SS7 fixes the actor spelling.
         # Trust tiers (SS5.3) are derived from the actor prefix, so an actorless `generated`
         # block leaves a consumer unable to tell a machine build from a hand-authored document.
@@ -154,6 +163,14 @@ for dirpath, dirnames, filenames in os.walk(OUT):
             if res.startswith(('http://', 'https://')): continue
             if res.startswith('/') and os.path.exists(os.path.join(OUT, res.lstrip('/'))): continue
             errors.append(f'{relp}: resource outside the bundle or missing: {res}')
+
+# The permission matrix is generated from every endpoint's api.permission_required. A "-"
+# in the last column means a row lost its source value, which reads as "no permission needed".
+mx = docs.get('/foundations/permission-matrix.md')
+if mx:
+    for i, line in enumerate(mx[2].split('\n'), 1):
+        if line.startswith('| [') and re.search(r'\|\s*-\s*\|\s*$', line):
+            errors.append(f'/foundations/permission-matrix.md:{i}: empty permission cell')
 
 # link check
 anchors = {}

@@ -24,7 +24,7 @@ This bundle follows the Open Knowledge Format (OKF) v0.2: a directory tree of ma
 |---|---|---|
 | `/overview.md` | What the API is and the five conventions. | `API Overview` |
 | `/endpoint-catalog.md` | Every endpoint in one table. | `API Catalog` |
-| `/foundations/` | Shared rules: authentication, data centers, request conventions, response envelope, HTTP statuses, error codes, scopes, roles, permission matrix, identifiers, criteria syntax, async jobs, rate limits, export and import enums, white label, glossary, SDK clients. | `Reference`, `Concept`, `Error Catalog`, `Authentication` |
+| `/foundations/` | Shared rules: authentication, data centers, request conventions, response envelope, HTTP statuses, error codes, scopes, roles, custom roles, permission matrix, identifiers, criteria syntax, async jobs, rate limits, export and import enums, white label, glossary, SDK clients. | `Reference`, `Concept`, `Error Catalog`, `Authentication` |
 | `/domains/<domain>/overview.md` | One document per domain: description, groups, endpoints. | `API Domain` |
 | `/domains/<domain>/<group>/overview.md` | One document per API group: concepts, limits, permission model, shared CONFIG attributes, notes. | `API Group` |
 | `/domains/<domain>/<group>/<operation-id>.md` | One document per endpoint. | `API Endpoint` |
@@ -61,13 +61,13 @@ The body of every endpoint document uses the same H1 sections in the same order:
 2. **Building a request**: take method, path and CONFIG location from the endpoint frontmatter, the CONFIG fields from the `Request` section, and encoding rules from [Request conventions](foundations/request-conventions.md).
 3. **Diagnosing a failure**: look up `data.errorCode` in [Error code catalog](foundations/error-codes.md); the anchor is `#error-<code>`.
 4. **Choosing scopes**: use `api.oauth_scopes` of every endpoint the integration calls, or consult [OAuth scopes](foundations/oauth-scopes.md) for the operations per scope.
-5. **Checking authorization**: [Permission matrix](foundations/permission-matrix.md) lists the required role per endpoint; [Roles & permissions](foundations/roles-and-permissions.md) defines the roles.
+5. **Checking authorization**: [Permission matrix](foundations/permission-matrix.md) lists the required role per endpoint; [Roles & permissions](foundations/roles-and-permissions.md) defines the roles; [Custom roles](foundations/custom-roles.md) covers organization-defined roles and their permission catalogue.
 6. **Generating SDKs or collections**: read `/references/endpoint-catalog.json` for the inventory, then the OpenAPI files for schemas; use `/sdk-examples/` for idiomatic usage per language.
 7. **Multi-step tasks**: check `/workflows/` first; each playbook links the exact endpoints in order and names the IDs that flow between them.
 
 # Provenance and Trust
 
-Every concept carries `generated.by` (the OKF §7 actor that produced it, `process:build_okf`) and `generated.at` (build time) and, where applicable, `sources` pointing at the OpenAPI file or the bundle concepts it was derived from; all source references are bundle-internal paths or public URLs. No concept carries `verified`, so the trust tier of the whole bundle is **unverified** in OKF terms: content is faithful to the source documents but has not been re-confirmed by a human against the live service. Add `verified: { by: human:<id>, at: <timestamp> }` to a concept after reviewing it. Concepts whose content came from outside the source documents (only [Data centers](foundations/data-centers.md) and the general OAuth flow in [Authentication](foundations/authentication.md)) say so explicitly in their body.
+Every concept carries `generated.by` (the OKF §7 actor that produced it - `process:build_okf` for everything emitted by the generator) and `generated.at` (build time) and, where applicable, `sources` pointing at the OpenAPI file or the bundle concepts it was derived from; all source references are bundle-internal paths or public URLs. No concept carries `verified`, so the trust tier of the whole bundle is **unverified** in OKF terms: content is faithful to the source documents but has not been re-confirmed by a human against the live service. Add `verified: { by: human:<id>, at: <timestamp> }` to a concept after reviewing it. Concepts whose content came from outside the source documents ([Data centers](foundations/data-centers.md), the general OAuth flow in [Authentication](foundations/authentication.md), and [Custom roles](foundations/custom-roles.md), which is derived from the Zoho Analytics help documentation) say so explicitly in their body.
 
 # Regenerating
 

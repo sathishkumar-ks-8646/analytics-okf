@@ -25,7 +25,7 @@ api:
   request_content_type: application/x-www-form-urlencoded
   success_status: 204
   response_content_types: []
-  permission_required: ""
+  permission_required: "The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with Sync Data permission on the workspace."
   error_codes:
     - 7104
     - 7301
@@ -78,7 +78,7 @@ Sync data from the available datasource for the specified view - one table only.
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.metadata.create`](../../../foundations/oauth-scopes.md#zohoanalyticsmetadatacreate) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | The authenticated user must be an Account Admin or Organization Admin, or a Workspace Admin, or the View Owner, or any user with Sync Data permission on the workspace. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | JSON object sent as the `CONFIG` field of an `application/x-www-form-urlencoded` body - optional |
 | Request Content-Type | `application/x-www-form-urlencoded` |
 | Success response | HTTP 204 with no body |

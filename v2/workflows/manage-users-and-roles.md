@@ -48,5 +48,5 @@ Most of these endpoints return HTTP 204 with no body on success.
 
 # Related
 
-- [Roles & permissions](../foundations/roles-and-permissions.md)
+- [Roles & permissions](../foundations/roles-and-permissions.md), [Custom roles](../foundations/custom-roles.md)
 - [Organization Users](../domains/users-and-groups/org-users/overview.md), [Workspace Users](../domains/users-and-groups/workspace-users/overview.md), [Workspace Groups](../domains/users-and-groups/workspace-groups/overview.md)

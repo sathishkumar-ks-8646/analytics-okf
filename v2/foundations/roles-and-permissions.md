@@ -62,7 +62,7 @@ Managed with the [Workspace Users](../domains/users-and-groups/workspace-users/o
 |---|---|
 | `WORKSPACEADMIN` (Workspace Admin) | Full access to one workspace: create and delete views, manage users and groups of the workspace, share, schedule, import and export. The workspace owner is a Workspace Admin. |
 | `USER` | Accesses the views shared to them, with whatever permissions the share grants. |
-| Custom role name | An organization-defined custom role; the name must exist exactly (`7550`). |
+| Custom role name | An organization-defined custom role; the name must exist exactly (`7550`). The permissions it carries are configured in the interface, not through the API - see [Custom roles](custom-roles.md). |
 
 Workspace-level user management asymmetry: Workspace Admins may add and remove workspace users, but changing a user's status or role requires Account Admin or Organization Admin.
 
@@ -106,6 +106,7 @@ Additional gates that can apply regardless of role:
 
 # Related
 
+- [Custom roles](custom-roles.md) - organization-defined roles, their permission catalogue, and how a role name reaches the API.
 - [Permission matrix](permission-matrix.md) - the requirement of every endpoint in one table.
 - [OAuth scopes](oauth-scopes.md)
 - [Sharing](../domains/share-and-publish/sharing/overview.md)

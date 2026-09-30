@@ -25,7 +25,7 @@ api:
   success_status: 200
   response_content_types:
     - application/json
-  permission_required: ""
+  permission_required: "Only the user who created the export job. Any other user, including an Account Admin or Organization Admin, receives 8124."
   error_codes:
     - 8120
     - 8124
@@ -75,7 +75,7 @@ Returns details of the specified asynchronous export job. The HTTP status report
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.data.read`](../../../foundations/oauth-scopes.md#zohoanalyticsdataread) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | Only the user who created the export job. Any other user, including an Account Admin or Organization Admin, receives 8124. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | No CONFIG parameter |
 | Success response | HTTP 200 - `application/json` |
 | OpenAPI | [`data-operations-grouped-api.json`](../../../references/openapi/data-operations-grouped-api.json) - pointer `#/paths/~1restapi~1v2~1bulk~1workspaces~1{workspace-id}~1exportjobs~1{job-id}/get`; response schema `ExportJobDetailsResponse` |

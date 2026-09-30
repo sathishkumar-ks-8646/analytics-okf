@@ -111,7 +111,7 @@ All endpoints require the `Authorization: Zoho-oauthtoken <access-token>` header
 |-------------|--------------|-------------|
 | `"WORKSPACEADMIN"` | Workspace Admin | Full access to the workspace — can add/remove users, create and delete views, manage shares. |
 | `"USER"` | User | Can access views shared with them. Cannot manage workspace settings or users unless specifically shared with Design Modify permission. |
-| Custom role name | (as defined) | A role name exactly matching a custom role defined in the org. Must exist — invalid names fail with error **7550**. |
+| Custom role name | (as defined) | A role name exactly matching a custom role defined in the org. Must exist — invalid names fail with error **7550**. The permissions behind the name are configured in the interface, not through the API — see [Custom roles](../../../foundations/custom-roles.md). |
 
 > **Note:** `"VIEWER"` is an org-level role, not a workspace-level role value. At workspace level, Viewers appear as `"User"` in the response. The distinction is enforced at the org level.
 

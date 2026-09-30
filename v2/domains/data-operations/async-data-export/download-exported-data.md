@@ -33,7 +33,7 @@ api:
     - image/png
     - image/jpeg
     - application/zip
-  permission_required: ""
+  permission_required: "Only the user who created the export job. Any other user, including an Account Admin or Organization Admin, receives 8124."
   error_codes:
     - 8120
     - 8121
@@ -88,7 +88,7 @@ Download the file produced by a completed asynchronous export job. The job must 
 | Base URL | `https://analyticsapi.zoho.com` (data-center specific, see [Data centers](../../../foundations/data-centers.md)) |
 | OAuth scope | [`ZohoAnalytics.data.read`](../../../foundations/oauth-scopes.md#zohoanalyticsdataread) |
 | ZANALYTICS-ORGID header | **Required** |
-| Permission required | See group overview See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
+| Permission required | Only the user who created the export job. Any other user, including an Account Admin or Organization Admin, receives 8124. See [Roles & permissions](../../../foundations/roles-and-permissions.md). |
 | CONFIG parameter | No CONFIG parameter |
 | Success response | HTTP 200 - `text/csv`, `application/json`, `application/xml`, `application/vnd.ms-excel`, `application/pdf`, `text/html`, `image/png`, `image/jpeg`, `application/zip` |
 | Content-Type | Varies with the job's `responseFormat` — see [Exported File Structure by Format](#exported-file-structure-by-format) |
