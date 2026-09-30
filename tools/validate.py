@@ -9,16 +9,26 @@ the bundle, and that every internal link and anchor resolves.
 Usage:
     python3 validate.py [bundle-directory]
 
-With no argument it looks for the bundle next to this script: ./okf, ./bundle, ./zoho-analytics-rest-api-v2,
-or the current directory if that is itself a bundle root.
+With no argument it looks for the bundle next to this script: the highest-numbered ./v<N>
+(./v2, ./v3, ...), then ./bundle, ./zoho-analytics-rest-api-v2, or the current directory if
+that is itself a bundle root.
 
 Audience: maintainers and contributors. Consumers of the bundle do not need to run this; it exists
 so that continuous integration can refuse to publish a bundle that is malformed or has broken links.
 """
-import os, re, sys, json
+import os, re, sys, json, glob
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BUNDLE_DIRS = ('okf', 'bundle', 'zoho-analytics-rest-api-v2', '.')
+# Version bundles live in top-level v<N>/ directories and are discovered per base directory,
+# so adding v3/ needs no change here. These are the fallbacks tried after them.
+LEGACY_BUNDLE_DIRS = ('bundle', 'zoho-analytics-rest-api-v2', '.')
+
+
+def version_dirs(base):
+    """Names of the v<N> bundle directories under base, newest first."""
+    names = [os.path.basename(p) for p in glob.glob(os.path.join(base, 'v[0-9]*'))
+             if os.path.isdir(p)]
+    return sorted(names, key=lambda n: int(re.match(r'v(\d+)', n).group(1)), reverse=True)
 
 
 def is_bundle(d):
@@ -36,12 +46,12 @@ def find_bundle():
             sys.exit(f'not an OKF bundle root (no index.md declaring okf_version): {sys.argv[1]}')
         return d
     for base in (os.getcwd(), ROOT):
-        for name in BUNDLE_DIRS:
+        for name in version_dirs(base) + list(LEGACY_BUNDLE_DIRS):
             d = os.path.abspath(os.path.join(base, name))
             if os.path.isdir(d) and is_bundle(d):
                 return d
     sys.exit('no OKF bundle found. Pass the bundle directory as an argument, '
-             'for example: python3 ' + os.path.basename(__file__) + ' okf')
+             'for example: python3 ' + os.path.basename(__file__) + ' v2')
 
 
 OUT = find_bundle()

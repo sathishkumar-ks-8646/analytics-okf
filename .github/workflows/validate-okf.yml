@@ -15,11 +15,39 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate OKF conformance and links
-        run: python3 tools/validate.py okf
+        run: |
+          shopt -s failglob
+          for bundle in v[0-9]*/; do
+            echo "::group::validate ${bundle%/}"
+            python3 tools/validate.py "${bundle%/}"
+            echo "::endgroup::"
+          done
       - name: Check machine-readable files parse
         run: |
-          python3 -c "import json;json.load(open('okf/manifest.json'))"
-          python3 -c "import json;json.load(open('okf/references/endpoint-catalog.json'))"
-          for f in okf/references/openapi/*.json; do
+          shopt -s failglob
+          python3 -c "import json;json.load(open('manifest.json'))"
+          for f in v[0-9]*/manifest.json v[0-9]*/references/endpoint-catalog.json v[0-9]*/references/openapi/*.json; do
             python3 -c "import json,sys;json.load(open(sys.argv[1]))" "$f"
           done
+      - name: Root manifest is in sync with the version directories
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          m = json.load(open("manifest.json"))
+          listed = {v["version"] for v in m["versions"]}
+          on_disk = {d for d in os.listdir(".")
+                     if d[:1] == "v" and d[1:2].isdigit() and os.path.isdir(d)}
+          if listed != on_disk:
+              sys.exit(f"root manifest versions {sorted(listed)} != directories {sorted(on_disk)}")
+          for v in m["versions"]:
+              for k in ("path", "manifest", "index", "endpoint_catalog_json"):
+                  p = v.get(k)
+                  if not p or not os.path.exists(p):
+                      sys.exit(f"{v['version']}.{k} -> missing {p}")
+              sub = json.load(open(v["manifest"]))
+              if sub["version"] != v["bundle_version"] or sub["api"]["version"] != v["api_version"]:
+                  sys.exit(f"{v['version']}: root manifest disagrees with {v['manifest']}")
+          if m["latest"] not in listed:
+              sys.exit(f"latest={m['latest']} is not a listed version")
+          print("ok:", sorted(listed))
+          PY

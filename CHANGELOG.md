@@ -3,6 +3,30 @@
 All notable changes to this bundle are recorded here. Versions follow semantic versioning: major for a
 removed or renamed endpoint or a layout change, minor for additions, patch for corrections.
 
+## Unreleased
+
+### Changed
+
+- **Repository layout.** The bundle moved from `okf/` to `v2/` so future API versions can live
+  alongside it in the same repository. Bundle content is byte-identical: no document, link or
+  frontmatter path changed. The v2 bundle version remains 1.0.0.
+- `llms.txt` at the repository root is now a version router. The full V2 link list moved to
+  `v2/llms.txt`.
+- `tools/validate.py` discovers `v<N>/` bundle directories instead of a hardcoded `okf/`, and CI
+  validates every `v*/` directory, so adding `v3/` needs no further change.
+
+### Added
+
+- Root `manifest.json`: a machine-readable index of every available API version, its status and its
+  bundle manifest. Tools should read this instead of hard-coding `v2/`.
+- A CI check that the root `manifest.json` stays in sync with the version directories on disk.
+
+### Migration
+
+- Replace `.../main/okf/<path>` with `.../main/v2/<path>` in any pinned raw URL.
+- The pre-move layout stays reachable at the `layout-okf-v1` tag: substitute `main` with
+  `layout-okf-v1` in an old URL to resolve it unchanged.
+
 ## 1.0.0 - 2026-09-16
 
 ### Added
