@@ -43,6 +43,7 @@ sources:
     resource: "/domains/dsml/automl/get-auto-ml-analysis-in-workspace.md"
     title: Endpoint reference - Get AutoML Analysis In Workspace
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

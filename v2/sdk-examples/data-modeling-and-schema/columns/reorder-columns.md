@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/columns/reorder-columns.md"
     title: Endpoint reference - Reorder Columns
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

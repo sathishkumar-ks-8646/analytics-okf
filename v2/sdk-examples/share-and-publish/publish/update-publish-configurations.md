@@ -43,6 +43,7 @@ sources:
     resource: "/domains/share-and-publish/publish/update-publish-configurations.md"
     title: Endpoint reference - Update Publish Configurations
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

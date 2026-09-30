@@ -162,6 +162,7 @@ sources:
     resource: "/domains/dsml/automl/overview.md"
     title: AutoML - group overview
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

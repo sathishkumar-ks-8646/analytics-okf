@@ -14,6 +14,7 @@ sources:
     resource: /sdk-examples/index.md
     title: SDK code samples (10 files, 9 languages, 166 endpoints)
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

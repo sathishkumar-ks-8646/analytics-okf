@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/data-sync-and-connectivity/update-datasource-connection.md"
     title: Endpoint reference - Update Datasource Connection
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

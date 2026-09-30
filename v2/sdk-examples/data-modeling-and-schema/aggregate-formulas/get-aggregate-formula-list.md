@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/aggregate-formulas/get-aggregate-formula-list.md"
     title: Endpoint reference - Get Aggregate Formula
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

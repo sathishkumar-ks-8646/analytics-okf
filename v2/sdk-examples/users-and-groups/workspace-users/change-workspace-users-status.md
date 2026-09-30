@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/workspace-users/change-workspace-users-status.md"
     title: Endpoint reference - Change Workspace Users Status
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

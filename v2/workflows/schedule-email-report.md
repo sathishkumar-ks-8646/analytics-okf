@@ -14,6 +14,7 @@ sources:
     resource: /domains/index.md
     title: API domain and group overviews in this bundle
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

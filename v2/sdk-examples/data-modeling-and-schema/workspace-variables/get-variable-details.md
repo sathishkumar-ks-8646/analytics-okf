@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/workspace-variables/get-variable-details.md"
     title: Endpoint reference - Get Variable Details
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

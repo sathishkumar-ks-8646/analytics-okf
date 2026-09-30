@@ -43,6 +43,7 @@ sources:
     resource: "/domains/views-management/trash-management/restore-trash-view.md"
     title: Endpoint reference - Restore Trash View
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

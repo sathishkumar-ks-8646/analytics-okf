@@ -43,6 +43,7 @@ sources:
     resource: "/domains/views-management/trash-management/delete-trash-view.md"
     title: Endpoint reference - Delete Trash View
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

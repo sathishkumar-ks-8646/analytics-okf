@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/columns/add-column.md"
     title: Endpoint reference - Add Column
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

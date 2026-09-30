@@ -1,41 +1,57 @@
-# Zoho Analytics REST API v2 - Open Knowledge Format bundle
+# Zoho Analytics REST API - Open Knowledge Format bundles
 
-Machine-readable, agent-friendly knowledge base for the [Zoho Analytics REST API v2](https://www.zoho.com/analytics/api/v2/).
+Machine-readable, agent-friendly knowledge base for the [Zoho Analytics REST API](https://www.zoho.com/analytics/api/v2/).
 It packages every public endpoint, the conventions they share, and their error codes, OAuth scopes
 and permissions as an [Open Knowledge Format](https://github.com/GoogleCloudPlatform/open-knowledge-format)
-(OKF v0.2) bundle: a directory of markdown files with YAML frontmatter.
+([OKF v0.2 specification](https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/main/SPEC.md))
+bundle: a directory of markdown files with YAML frontmatter.
 
-**Bundle version 1.0.0** - 168 endpoints, 10 domains, 33 groups,
-278 error codes, 31 OAuth scopes, 8 workflow playbooks,
-166 SDK example documents in 9 languages.
+Each API version is a self-contained bundle in its own top-level directory. **The current version is
+[v2](v2/index.md)**, bundle version 1.0.0 - 168 endpoints, 10 domains, 33 groups, 278 error codes,
+31 OAuth scopes, 8 workflow playbooks, 166 SDK example documents in 9 languages.
 
 This is documentation, not a client library. For the SDKs themselves see the
 [Zoho Analytics API documentation](https://www.zoho.com/analytics/api/v2/).
 
 ## Quick start
 
-**For an AI assistant or agent.** Point it at [`llms.txt`](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt) and let it follow the links.
-Inside the bundle, links between documents are relative to the linking document, so they resolve both on GitHub and in a local clone.
+Two files at the repository root are the stable entry points. Their paths never change and their
+contents always describe whatever versions exist, so link to these rather than to a version
+directory.
 
 ```
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt                                  curated entry point, lists every version
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/manifest.json                             version index for tooling
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/manifest.json                         version, counts, entry points
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/overview.md                           what the API is, five shared conventions
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/how-to-use-this-bundle.md             frontmatter contract and navigation rules
-https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/references/endpoint-catalog.json      every endpoint, machine-readable
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt          agent entry point; names the latest version
+https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/manifest.json     version index for tooling; `latest` names the version to use
 ```
+
+**For an AI assistant or agent.** Point it at [`llms.txt`](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/llms.txt)
+and let it follow the links. Inside a bundle, links between documents are relative to the linking
+document, so they resolve both on GitHub and in a local clone.
+
+**For tooling** such as SDK generators, Postman collections and MCP servers. Read the root
+`manifest.json`, take `latest` (or the version the caller pinned), and follow that entry's
+`path`, `manifest` and `endpoint_catalog_json`. Everything below is then reachable from the bundle
+manifest's `entry_points`.
 
 **For a human.** Start at [`v2/overview.md`](v2/overview.md), then
 [`v2/endpoint-catalog.md`](v2/endpoint-catalog.md) to find an endpoint, then the endpoint document.
 
-**For tooling** such as SDK generators, Postman collections and MCP servers. Read
-[`v2/references/endpoint-catalog.json`](v2/references/endpoint-catalog.json) for the inventory and
-[`v2/references/openapi/`](v2/references/openapi/) for request and response schemas.
-
 ```bash
-git clone https://github.com/zoho/analytics-okf.git
+git clone https://github.com/sathishkumar-ks-8646/analytics-okf.git
 ```
+
+Resolved against the current `latest`, the per-version files are:
+
+```
+.../main/v2/manifest.json                         version, counts, entry points
+.../main/v2/llms.txt                              curated entry point for this version
+.../main/v2/overview.md                           what the API is, five shared conventions
+.../main/v2/how-to-use-this-bundle.md             frontmatter contract and navigation rules
+.../main/v2/references/endpoint-catalog.json      every endpoint, machine-readable
+.../main/v2/references/openapi/                   request and response schemas
+```
+
+Hard-code these only when you deliberately want to pin to v2. See [Versions](#versions).
 
 ## Repository layout
 
@@ -44,10 +60,13 @@ directory. The two root files route agents and tooling to the right one.
 
 | Path | Contents |
 |---|---|
-| `llms.txt` | AI agent entry point. Lists every available API version and links to each one. |
+| `llms.txt` | AI agent entry point. Names the latest version and links to every available one. |
 | `manifest.json` | Machine-readable version index. Read this rather than hard-coding a version directory. |
 | `v2/` | The Zoho Analytics REST API **v2** bundle: current and stable. |
 | `tools/` | Maintainer tooling. Shared across versions. |
+| `CHANGELOG.md` | Bundle version history across all API versions. |
+| `LICENSE.md` | Licence. |
+| `.github/` | CI that validates every `v<N>/` bundle and the root manifest. |
 
 ### Inside a version bundle (`v2/`)
 
@@ -62,6 +81,7 @@ directory. The two root files route agents and tooling to the right one.
 | `v2/workflows/` | Step-by-step playbooks for multi-endpoint tasks. |
 | `v2/sdk-examples/` | Code samples per endpoint in cURL, C#, Go, Java, PHP, Python, Node.js, Ruby and Deluge. |
 | `v2/references/` | The OpenAPI 3 specifications and the machine-readable endpoint catalog. |
+| `v2/log.md` | OKF update log for this bundle. |
 | `v2/manifest.json` | Bundle name, version, OKF version, counts and entry points. |
 | `v2/llms.txt` | Curated entry point for this version, with the full link list. |
 
@@ -88,19 +108,61 @@ The body always uses the same H1 sections in the same order: Summary, Endpoint, 
 Examples, Notes and Behaviour, Error Codes, Related. Full contract in
 [`v2/how-to-use-this-bundle.md`](v2/how-to-use-this-bundle.md).
 
+## OKF conformance
+
+The bundle satisfies every clause of [OKF v0.2 §11](https://github.com/GoogleCloudPlatform/open-knowledge-format/blob/main/SPEC.md):
+every non-reserved `.md` file has parseable YAML frontmatter with a non-empty `type` (§4.1), and the
+reserved files follow §8 and §9 - `index.md` carries no frontmatter except the bundle root, which
+declares `okf_version: "0.2"` (§12), and `log.md` is a newest-first list under ISO 8601 date
+headings. Concepts use the recommended `title`, `description`, `resource` and `tags` fields, the
+provenance and lifecycle families `sources`, `generated` and `status` (§5), the §7 actor convention,
+and the `references/` convention (§6.3).
+
+One deliberate deviation. §6.1 recommends bundle-absolute links beginning with `/`, but a leading
+slash resolves against the *site* root in every markdown renderer, so those links 404 as soon as the
+bundle sits in a subdirectory of a repository, which is exactly the layout here. Links in document
+bodies are therefore document-relative, and bundle-absolute paths appear only in the path-valued
+frontmatter fields `resource`, `sources[].resource` and `api.openapi.file`, where §6.2 defines them
+against the bundle root. `tools/validate.py` enforces this split.
+
 ## Versions
 
 Each API version ships as a self-contained OKF bundle in its own top-level directory.
-Adding a version never moves an existing one.
+Adding a version never moves an existing one, so a URL you have already resolved stays valid.
 
 | Version | Status | Path | Manifest |
 |---|---|---|---|
-| v2 | stable | [`v2/`](v2/index.md) | [`v2/manifest.json`](v2/manifest.json) |
+| v2 | stable, latest | [`v2/`](v2/index.md) | [`v2/manifest.json`](v2/manifest.json) |
 
-V3 will be added under `v3/` when available. Tools should read the root
-[`manifest.json`](manifest.json) and follow `versions[].path` rather than assuming `v2/`.
+### Resolving the version to use
 
-## Versioning
+Read the root [`manifest.json`](manifest.json) and follow `latest` to the matching `versions[]`
+entry, or join `raw_base` with `latest_path`. Do not assume `v2/`. `latest` is the one thing in this
+repository whose value is meant to change; everything it points at is immutable.
+
+Pin a version deliberately - by writing `v2/` into a URL, or by cloning a tag - when you need
+reproducibility, for instance in a generator's golden files or a cached agent context. Pinning is
+the supported case, not a workaround; it is only hard-coding `v2/` *while meaning "current"* that
+breaks when v3 ships.
+
+### Lifecycle
+
+`versions[].status` takes one of four values, defined in the manifest's `status_vocabulary`:
+
+| Status | Meaning |
+|---|---|
+| `beta` | Published for early access. Content may change without a major bundle version bump. |
+| `stable` | Ready for production use and actively maintained. |
+| `deprecated` | Still served and still correct, but superseded. Migrate before `sunset_on`. |
+| `sunset` | No longer maintained. Retained for link stability and history only. |
+
+When a new API version ships it is added as a sibling directory and a new `versions[]` entry, and
+`latest` and `latest_path` move to it. The superseded version stays exactly where it is and gains
+`status: deprecated`, a `deprecated_on` date, a `sunset_on` date and a `superseded_by` pointer, so a
+consumer can detect the change and plan a migration from the manifest alone. A deprecated bundle is
+never deleted and never moved; `sunset` means maintenance has stopped, not that the files went away.
+
+### Version numbers
 
 Two version numbers are in play and they move independently.
 
@@ -120,15 +182,18 @@ Pin a version by cloning a tag or downloading the release tarball. `main` always
 
 Moving the bundle from `okf/` to `v2/` was a repository-layout change, not a bundle change: no
 document, link or frontmatter path was altered, so the v2 bundle version stays 1.0.0. Raw URLs
-pinned to the old `okf/` path remain resolvable at the `layout-okf-v1` tag.
+pinned to the old `okf/` path must be rewritten to `v2/`.
 
 ## Provenance and trust
 
 Concepts are derived from the Zoho Analytics API reference documents and the OpenAPI specifications
-shipped in `v2/references/openapi/`. Each concept records `generated.at` and, where applicable,
-`sources`. No concept carries a `verified` entry yet, so the bundle's OKF trust tier is **unverified**:
-content is faithful to the source documents but has not been re-confirmed against the live service.
-Reviewers should add `verified` entries to the concepts they check.
+shipped in `v2/references/openapi/`. Each concept records `generated.by` and `generated.at` and,
+where applicable, `sources`. `generated.by` is `process:build_okf`, the OKF §7 actor for the
+generator that produced the bundle. No concept carries a `verified` entry yet, so the bundle's OKF
+trust tier is **unverified** (§5.3): content is faithful to the source documents but has not been
+re-confirmed against the live service. Reviewers should add
+`verified: { by: human:<id>, at: <timestamp> }` to the concepts they check, which raises those
+concepts to **human-reviewed**.
 
 ## Feedback and contributions
 
@@ -141,10 +206,14 @@ the bundle.
 
 ```bash
 python3 tools/validate.py        # finds the newest v<N>/ automatically; needs Python 3.8+, no dependencies
+python3 tools/validate.py v2     # or name a bundle directory explicitly
 ```
 
-It verifies OKF v0.2 conformance, that no `resource` points outside the bundle, and that every internal
-link and anchor resolves. It exits non-zero on any error.
+It verifies OKF v0.2 conformance including the `generated`/`verified` actor forms, that no `resource`
+points outside the bundle, and that every internal link and anchor resolves. It exits non-zero on any
+error. CI runs it over every `v<N>/` directory and additionally checks that the root `manifest.json`
+agrees with what is on disk, that `latest` and `latest_path` name a version that is neither
+deprecated nor sunset, and that any deprecated version carries its lifecycle dates.
 
 ## Licence
 
@@ -152,4 +221,4 @@ See [LICENSE.md](LICENSE.md).
 
 ---
 
-Canonical copies: [https://github.com/zoho/analytics-okf](https://github.com/zoho/analytics-okf) and [https://www.zoho.com/analytics/api/v2/okf](https://www.zoho.com/analytics/api/v2/okf).
+Canonical copy: [https://github.com/sathishkumar-ks-8646/analytics-okf](https://github.com/sathishkumar-ks-8646/analytics-okf).

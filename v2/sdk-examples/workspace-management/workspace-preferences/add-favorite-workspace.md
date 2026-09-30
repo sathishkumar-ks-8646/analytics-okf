@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-preferences/add-favorite-workspace.md"
     title: Endpoint reference - Add Favourite Workspace
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

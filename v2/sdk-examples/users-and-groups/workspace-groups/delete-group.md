@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/workspace-groups/delete-group.md"
     title: Endpoint reference - Delete Group
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

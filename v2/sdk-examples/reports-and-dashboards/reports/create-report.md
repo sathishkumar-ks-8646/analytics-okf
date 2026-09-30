@@ -43,6 +43,7 @@ sources:
     resource: "/domains/reports-and-dashboards/reports/create-report.md"
     title: Endpoint reference - Create Analysis View
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

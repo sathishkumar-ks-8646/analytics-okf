@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/async-data-export/create-export-job-view-id.md"
     title: Endpoint reference - Create Export Job using View ID (Asynchronous)
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

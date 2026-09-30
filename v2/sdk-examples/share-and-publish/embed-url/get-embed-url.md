@@ -43,6 +43,7 @@ sources:
     resource: "/domains/share-and-publish/embed-url/get-embed-url.md"
     title: Endpoint reference - Get Embed URL
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

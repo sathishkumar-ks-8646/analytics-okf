@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-operations/get-workspace-secret-key.md"
     title: Endpoint reference - Get Workspace Secret Key
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

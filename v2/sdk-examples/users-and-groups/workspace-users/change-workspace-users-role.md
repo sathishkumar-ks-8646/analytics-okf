@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/workspace-users/change-workspace-users-role.md"
     title: Endpoint reference - Change Workspace Users Role
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

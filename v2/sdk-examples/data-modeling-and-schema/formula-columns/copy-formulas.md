@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/formula-columns/copy-formulas.md"
     title: Endpoint reference - Copy Custom Formulas
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

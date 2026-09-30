@@ -43,6 +43,7 @@ sources:
     resource: "/domains/views-management/auto-analysis/auto-analyse-column.md"
     title: Endpoint reference - Auto Analyse Column
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

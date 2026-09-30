@@ -16,6 +16,7 @@ sources:
     resource: /references/openapi
     title: OpenAPI 3 specifications (10 domain files plus shared components)
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

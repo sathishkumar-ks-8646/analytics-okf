@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/workspace-users/get-workspace-admins.md"
     title: Endpoint reference - Get Workspace Admins
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-operations/get-all-workspaces.md"
     title: Endpoint reference - Get All Workspace List
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

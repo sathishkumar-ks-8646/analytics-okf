@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-folders/rename-folder.md"
     title: Endpoint reference - Rename Folder
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/workspace-users/delete-workspace-users.md"
     title: Endpoint reference - Remove Workspace Users
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

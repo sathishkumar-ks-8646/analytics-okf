@@ -9,6 +9,7 @@ tags:
   - start-here
   - tooling
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---
@@ -66,13 +67,13 @@ The body of every endpoint document uses the same H1 sections in the same order:
 
 # Provenance and Trust
 
-Every concept carries `generated.at` (build time) and, where applicable, `sources` pointing at the OpenAPI file or the bundle concepts it was derived from; all source references are bundle-internal paths or public URLs. No concept carries `verified`, so the trust tier of the whole bundle is **unverified** in OKF terms: content is faithful to the source documents but has not been re-confirmed by a human against the live service. Add `verified: { by: human:<id>, at: <timestamp> }` to a concept after reviewing it. Concepts whose content came from outside the source documents (only [Data centers](foundations/data-centers.md) and the general OAuth flow in [Authentication](foundations/authentication.md)) say so explicitly in their body.
+Every concept carries `generated.by` (the OKF §7 actor that produced it, `process:build_okf`) and `generated.at` (build time) and, where applicable, `sources` pointing at the OpenAPI file or the bundle concepts it was derived from; all source references are bundle-internal paths or public URLs. No concept carries `verified`, so the trust tier of the whole bundle is **unverified** in OKF terms: content is faithful to the source documents but has not been re-confirmed by a human against the live service. Add `verified: { by: human:<id>, at: <timestamp> }` to a concept after reviewing it. Concepts whose content came from outside the source documents (only [Data centers](foundations/data-centers.md) and the general OAuth flow in [Authentication](foundations/authentication.md)) say so explicitly in their body.
 
 # Regenerating
 
 ```bash
 python3 tools/build_okf.py      # rebuilds bundle/ from api-docs/ and handwritten/
-python3 tools/validate_okf.py   # checks frontmatter, reserved files and link targets
+python3 tools/validate.py       # checks frontmatter, reserved files and link targets
 ```
 
 Hand-written concepts live in `handwritten/` and are copied into the bundle on every build.

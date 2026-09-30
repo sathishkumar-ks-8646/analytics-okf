@@ -43,6 +43,7 @@ sources:
     resource: "/domains/share-and-publish/publish/remove-public-permission.md"
     title: Endpoint reference - Remove Public Permission
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

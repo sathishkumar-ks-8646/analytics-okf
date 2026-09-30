@@ -49,5 +49,24 @@ jobs:
                   sys.exit(f"{v['version']}: root manifest disagrees with {v['manifest']}")
           if m["latest"] not in listed:
               sys.exit(f"latest={m['latest']} is not a listed version")
-          print("ok:", sorted(listed))
+          by_version = {v["version"]: v for v in m["versions"]}
+          if m["latest_path"] != by_version[m["latest"]]["path"]:
+              sys.exit(f"latest_path={m['latest_path']} != {m['latest']}.path")
+          vocab = set(m["status_vocabulary"])
+          for v in m["versions"]:
+              if v["status"] not in vocab:
+                  sys.exit(f"{v['version']}: status {v['status']!r} not in {sorted(vocab)}")
+              # A superseded version must say what replaced it and when it goes away, so a
+              # consumer can plan a migration without reading the changelog.
+              if v["status"] in ("deprecated", "sunset"):
+                  for k in ("deprecated_on", "superseded_by"):
+                      if not v.get(k):
+                          sys.exit(f"{v['version']}: status={v['status']} requires {k}")
+                  if v["superseded_by"] not in listed:
+                      sys.exit(f"{v['version']}.superseded_by={v['superseded_by']} is not a listed version")
+              elif v.get("deprecated_on") or v.get("superseded_by"):
+                  sys.exit(f"{v['version']}: deprecated_on/superseded_by set but status={v['status']}")
+          if by_version[m["latest"]]["status"] in ("deprecated", "sunset"):
+              sys.exit(f"latest={m['latest']} must not be {by_version[m['latest']]['status']}")
+          print("ok:", sorted(listed), "latest:", m["latest"])
           PY

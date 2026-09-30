@@ -43,6 +43,7 @@ sources:
     resource: "/domains/dsml/automl/get-auto-ml-analysis-details.md"
     title: Endpoint reference - Get AutoML Analysis Details
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

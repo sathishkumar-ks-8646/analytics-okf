@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-folders/change-folder-hierarchy.md"
     title: Endpoint reference - Change Folder Hierarchy
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

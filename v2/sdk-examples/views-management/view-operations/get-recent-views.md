@@ -43,6 +43,7 @@ sources:
     resource: "/domains/views-management/view-operations/get-recent-views.md"
     title: Endpoint reference - Get Recent Views
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

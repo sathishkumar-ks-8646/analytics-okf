@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-operations/get-workspace-details.md"
     title: Endpoint reference - Get Workspace Info
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

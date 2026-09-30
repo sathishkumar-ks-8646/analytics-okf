@@ -43,6 +43,7 @@ sources:
     resource: "/domains/schedules-and-alerts/email-schedules/update-email-schedule.md"
     title: Endpoint reference - Update Email Schedule
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

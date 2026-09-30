@@ -18,6 +18,7 @@ sources:
     resource: /domains/data-operations/async-data-import/overview.md
     title: Asynchronous & Batch Data Import - group overview
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

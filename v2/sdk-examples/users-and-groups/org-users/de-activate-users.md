@@ -43,6 +43,7 @@ sources:
     resource: "/domains/users-and-groups/org-users/de-activate-users.md"
     title: Endpoint reference - Deactivate Users
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

@@ -43,6 +43,7 @@ sources:
     resource: "/domains/reports-and-dashboards/dashboards/get-dashboard-metadata.md"
     title: Endpoint reference - Get Dashboard Metadata
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

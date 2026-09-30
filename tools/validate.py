@@ -56,6 +56,8 @@ def find_bundle():
 
 OUT = find_bundle()
 RESERVED = ('index.md', 'log.md')
+# OKF v0.2 §7: an actor is `<producer>/<version>`, `human:<id>` or `process:<id>`.
+ACTOR_RE = re.compile(r'^(?:human:[\w.-]+|process:[\w.-]+|[\w.-]+/[\w.-]+)$')
 
 def parse_frontmatter(text):
     m = re.match(r'^---\n(.*?)\n---\n', text, re.S)
@@ -134,8 +136,20 @@ for dirpath, dirnames, filenames in os.walk(OUT):
             if not re.search(rf'(?m)^{key}: \S', fm):
                 warnings.append(f'{relp}: frontmatter missing {key}')
         if '{{' in fm: errors.append(f'{relp}: unexpanded template placeholder in frontmatter')
-        if re.search(r'(?m)^generated:', fm) and re.search(r'(?m)^  by: ', fm):
-            errors.append(f'{relp}: generated.by must not be present')
+        # OKF v0.2 SS5.2: `by` is REQUIRED inside `generated`, and SS7 fixes the actor spelling.
+        # Trust tiers (SS5.3) are derived from the actor prefix, so an actorless `generated`
+        # block leaves a consumer unable to tell a machine build from a hand-authored document.
+        gen = re.search(r'(?m)^generated:\n((?:[ \t]+.*\n?)*)', fm)
+        if gen:
+            by = re.search(r'(?m)^\s+by:[ \t]*"?([^"\n]*?)"?\s*$', gen.group(1))
+            if not by or not by.group(1):
+                errors.append(f'{relp}: generated.by is required (OKF v0.2 §5.2)')
+            elif not ACTOR_RE.match(by.group(1)):
+                errors.append(f'{relp}: generated.by is not an OKF §7 actor '
+                              f'(<producer>/<version>, human:<id> or process:<id>): {by.group(1)}')
+        for by in re.findall(r'(?m)^\s+-?\s*by:[ \t]*"?([^"\n]*?)"?\s*$', fm):
+            if by and not ACTOR_RE.match(by):
+                warnings.append(f'{relp}: actor is not an OKF §7 form: {by}')
         for res in re.findall(r'(?m)^\s+resource: "?([^"\n]+?)"?\s*$', fm) + re.findall(r'(?m)^resource: "?([^"\n]+?)"?\s*$', fm):
             if res.startswith(('http://', 'https://')): continue
             if res.startswith('/') and os.path.exists(os.path.join(OUT, res.lstrip('/'))): continue

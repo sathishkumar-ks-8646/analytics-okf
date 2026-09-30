@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/sync-data-import/import-data-new-table.md"
     title: Endpoint reference - Import Data into a New Table (Synchronous)
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

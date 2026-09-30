@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/domain-and-white-label/enable-domain-workspace.md"
     title: Endpoint reference - Enable Workspace for Domain Access
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

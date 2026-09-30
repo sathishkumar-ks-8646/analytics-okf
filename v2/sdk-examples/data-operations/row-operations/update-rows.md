@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/row-operations/update-rows.md"
     title: Endpoint reference - Update Row
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

@@ -43,6 +43,7 @@ sources:
     resource: "/domains/dsml/automl/delete-auto-ml-analysis-model.md"
     title: Endpoint reference - Delete AutoML Analysis Model
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

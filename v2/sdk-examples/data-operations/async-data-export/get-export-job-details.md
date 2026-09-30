@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/async-data-export/get-export-job-details.md"
     title: Endpoint reference - Get Export Job Details
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

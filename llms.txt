@@ -2,9 +2,20 @@
 
 > Version index for the Zoho Analytics REST API Open Knowledge Format bundles. Each API version ships as a self-contained OKF v0.2 bundle in its own top-level directory of this repository. Start with the version you need; every version has its own llms.txt carrying the full link list for that version.
 
+Unless the caller has pinned a version, use the newest stable one. It is named by `latest` in
+[manifest.json](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/manifest.json),
+which is the only file in this repository whose meaning changes when a new API version ships. Every
+published version directory keeps its path forever, so a URL you have already resolved stays valid.
+Today `latest` is **v2**; a newer version will appear as a sibling directory and a new entry, and
+nothing under `/v2/` will move.
+
 ## Available versions
 
-- [V2 (current, stable)](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/llms.txt): 168 endpoints across 10 domains and 33 groups, 278 error codes, 31 OAuth scopes, 8 workflow playbooks. Base URL https://analyticsapi.zoho.com, path prefix /restapi/v2, OAuth 2.0 with the Zoho-oauthtoken scheme.
+- [V2 (latest, stable)](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/llms.txt): 168 endpoints across 10 domains and 33 groups, 278 error codes, 31 OAuth scopes, 8 workflow playbooks. Base URL https://analyticsapi.zoho.com, path prefix /restapi/v2, OAuth 2.0 with the Zoho-oauthtoken scheme.
+
+## Machine-readable version index
+
+- [manifest.json](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/manifest.json): every available version with its status, path, lifecycle dates and bundle manifest, plus `latest`. Read this instead of hard-coding a version directory.
 
 ## Quick links (V2)
 
@@ -15,10 +26,8 @@
 - [Endpoint catalog (JSON)](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/references/endpoint-catalog.json): every endpoint, machine-readable.
 - [Bundle manifest](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/manifest.json): bundle version, OKF version, counts and entry points.
 
-## Machine-readable version index
-
-- [manifest.json](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/manifest.json): every available version with its status, path and bundle manifest. Read this instead of hard-coding a version directory.
-
 ## Optional
 
-- V3 is not published yet. When it is, it will appear under /v3/ and as an additional entry in the root manifest.json. Nothing under /v2/ will move.
+- [Changelog](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/CHANGELOG.md): bundle version history across all API versions.
+- [V2 update log](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/v2/log.md): the OKF log for the v2 bundle.
+- [Licence](https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/LICENSE.md)

@@ -43,6 +43,7 @@ sources:
     resource: "/domains/views-management/view-operations/get-view-dependents.md"
     title: Endpoint reference - Get View Dependents
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

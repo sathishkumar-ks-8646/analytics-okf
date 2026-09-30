@@ -43,6 +43,7 @@ sources:
     resource: "/domains/workspace-management/workspace-folders/move-views-to-folder.md"
     title: Endpoint reference - Move Views To Folder
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

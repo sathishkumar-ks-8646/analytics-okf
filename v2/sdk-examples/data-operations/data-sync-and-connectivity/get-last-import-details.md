@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/data-sync-and-connectivity/get-last-import-details.md"
     title: Endpoint reference - Get Last Import Details
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

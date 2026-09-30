@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/async-data-import/get-import-job-details.md"
     title: Endpoint reference - Get Import Job Details
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

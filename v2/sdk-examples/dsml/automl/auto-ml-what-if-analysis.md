@@ -43,6 +43,7 @@ sources:
     resource: "/domains/dsml/automl/auto-ml-what-if-analysis.md"
     title: Endpoint reference - AutoML What If Analysis
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

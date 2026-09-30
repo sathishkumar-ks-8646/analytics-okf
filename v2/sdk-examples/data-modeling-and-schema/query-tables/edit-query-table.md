@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-modeling-and-schema/query-tables/edit-query-table.md"
     title: Endpoint reference - Edit Query Table
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---

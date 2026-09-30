@@ -43,6 +43,7 @@ sources:
     resource: "/domains/data-operations/async-data-import/batch-import-new-table.md"
     title: Endpoint reference - Batch Import Data into New Table
 generated:
+  by: process:build_okf
   at: 2026-09-16T07:44:37Z
 status: stable
 ---
