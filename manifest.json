@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "bundle": "zoho-analytics-okf",
+  "title": "Zoho Analytics REST API - Open Knowledge Format bundles",
+  "description": "Version index for the Zoho Analytics REST API OKF bundles. One entry per API version; each entry points at that version's OKF bundle root and manifest.",
+  "raw_base": "https://raw.githubusercontent.com/sathishkumar-ks-8646/analytics-okf/main/",
+  "latest": "v2",
+  "versions": [
+    {
+      "version": "v2",
+      "api_version": "v2",
+      "bundle_version": "1.0.0",
+      "okf_version": "0.2",
+      "status": "stable",
+      "path": "v2",
+      "manifest": "v2/manifest.json",
+      "index": "v2/index.md",
+      "entry": "v2/llms.txt",
+      "endpoint_catalog_json": "v2/references/endpoint-catalog.json"
+    }
+  ],
+  "note": "V3 will be added as an additional entry under v3/ when available. Consumers should read `versions` rather than assuming a fixed path."
+}
